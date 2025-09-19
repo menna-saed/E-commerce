@@ -1,0 +1,155 @@
+<nav class="bg-white border-gray-200 fixed top-0   w-full z-10 ">
+    <div class="max-w-screen-xl flex flex-nowrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center space-x-6  rtl:space-x-reverse">
+            <img src="images/logo.png2.webp" class="h-8" alt="logo" />
+
+        </a>
+        <button data-collapse-toggle="navbar-default" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+        </button>
+
+        <div class="hidden grow w-full md:flex md:w-auto" id="navbar-dropdown">
+            <ul
+                class="flex flex-col  font-medium ms-25 pt-1 mt-4 border text-black md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+                @if (islogin ===true) {
+                <li>
+                    <a routerLinkActive="text-blue-500" routerLink="/home"
+                        class="block ps-2  hover:texl-2xl hover:text-blue-600 rounded-sm md:bg-transparent "
+                        aria-current="page">{{"navbar.Home"|translate}}</a>
+                </li>
+                <li>
+                    <a routerLinkActive="text-blue-500" routerLink="/Product"
+                        class="block ps-2  hover:texl-2xl hover:text-blue-600  rounded-sm md:bg-transparent "
+                        aria-current="page">{{"navbar.Products"|translate}}</a>
+                </li>
+                <li>
+                    <a routerLinkActive="text-blue-500" routerLink="/categories"
+                        class="block ps-2 pe-4 hover:texl-2xl hover:text-blue-600 rounded-sm md:bg-transparent "
+                        aria-current="page">{{"navbar.Catogries"|translate}}</a>
+                </li>
+                <li>
+                    <a routerLinkActive="text-blue-500" routerLink="/brands"
+                        class="block ps-2 hover:texl-2xl hover:text-blue-600 rounded-sm md:bg-transparent "
+                        aria-current="page">{{"navbar.Brands"|translate}}</a>
+                </li>
+
+
+                }
+
+            </ul>
+            <ul
+                class="flex flex-col  text-black font-medium ms-auto md:ps-5 mt-4 borderrounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+                @if (islogin ===false) {
+                <li>
+                    <a routerLinkActive="text-blue-400" routerLink="/login"
+                        class="block ps-2   rounded-sm md:bg-transparent "
+                        aria-current="page">{{"navbar.login"|translate}}</a>
+                </li>
+
+
+                <li>
+                    <a routerLinkActive="text-blue-400" routerLink="/register"
+                        class="block ps-2   rounded-sm md:bg-transparent "
+                        aria-current="page">{{"navbar.register"|translate}}</a>
+                </li>
+
+                }
+                @else{
+
+                <div class="flex items-center relative">
+                    <li routerLink="/wishlist" routerLinkActive="text-red-700" class="text-xl pe-4">
+                        <a class="cursor-pointer text-red-700 transition-all duration-100 " routerLink="/wishlist">
+                            <i class="fa-solid fa-heart  hover:text-2xl "></i> </a>
+                        <span
+                            class="absolute top-[-5px] rtl:-start-6 ltr:-start-[-25px] text-sm flex justify-center items-center rounded-2xl  w-5 h-5 z-1 text-white bg-blue-700 ">{{wishlistcount()}}</span>
+                    </li>
+
+                    <li class="px-5 relative text-center">
+                        <a routerLinkActive="text-blue-400 transition-all duration-100" routerLink="/cart">
+                            <i class="fa-solid fa-cart-shopping text-xl hover:text-2xl"></i>
+                            <span
+                                class="absolute top-[-10px]  left-[48px] text-sm flex justify-center items-center rounded-2xl w-5 h-5 z-1 text-white bg-blue-700  ">{{navCount()}}</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a (click)="islogout()" routerLinkActive="text-blue-400"
+                            class="texl-xl cursor-pointer block ps-3  me-auto  hover:font-bold transition-all duration-100  "
+                            aria-current="page">
+
+                            <i class="fa-solid fa-arrow-right-to-bracket text-xl"></i>
+                            <!-- {{"navbar.Signout"|translate}} -->
+                        </a>
+                    </li>
+
+                    <!-- <div class="ps-5">
+                        <span class=" cursor-pointer pe-3"
+                            (click)="langservice.changelang('en')">{{"navbar.en"|translate}}</span>
+                        <span class=" cursor-pointer pe-3"
+                            (click)="langservice.changelang('ar')">{{"navbar.ar"|translate}}</span>
+
+
+                    </div> -->
+
+                    <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
+                        <button  type="button" data-dropdown-toggle="language-dropdown-menu"
+                        
+                            class="inline-flex items-center font-medium justify-center px-5 py-2 text-sm text-gray-900 rounded-lg cursor-pointer hover:bg-gray-100"
+                            (click)="langservice.changelang('en')">{{"navbar.english-us"|translate}}
+                            
+                            
+                            <!-- <svg class="w-5 h-5 rounded-full me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
+                                <path fill="#b22234" d="M0 0h7410v3900H0z" />
+                                <path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff"
+                                    stroke-width="300" />
+                                <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+                                <g fill="#fff">
+                                    <g id="d">
+                                        <g id="c">
+                                            <g id="e">
+                                                <g id="b">
+                                                    <path id="a"
+                                                        d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z" />
+                                                    <use xlink:href="#a" y="420" />
+                                                    <use xlink:href="#a" y="840" />
+                                                    <use xlink:href="#a" y="1260" />
+                                                </g>
+                                                <use xlink:href="#a" y="1680" />
+                                            </g>
+                                            <use xlink:href="#b" x="247" y="210" />
+                                        </g>
+                                        <use xlink:href="#c" x="494" />
+                                    </g>
+                                    <use xlink:href="#d" x="988" />
+                                    <use xlink:href="#c" x="1976" />
+                                    <use xlink:href="#e" x="2470" />
+                                </g>
+                                
+                            </svg> -->
+                           
+                        </button>
+
+                        <div class="z-50 hidden my-4  list-none bg-white cursor-pointer divide-y px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 divide-gray-100 rounded-lg shadow-sm" 
+                            id="language-dropdown-menu"  (click)="langservice.changelang('ar')">{{"navbar.arabic"|translate}}
+                            <ul class="py-2 font-medium" role="none">
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                }
+
+
+
+            </ul>
+        </div>
+
+    </div>
+</nav>

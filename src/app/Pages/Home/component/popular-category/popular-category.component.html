@@ -1,0 +1,19 @@
+<section class="mt-20 w-full height-[100px]">
+  <div class="contaier mx-auto w-[85%]">
+    <p class="text-gray-500">{{"category.Item_market"|translate}} </p>
+    <h2 class="text-3xl font-bold pb-4">{{"category.categories"|translate}}
+   
+    </h2>
+    <owl-carousel-o [options]="customcategoryOptions">
+      @for (category of categoriesList; track category._id) {
+      <ng-template carouselSlide [id]="category._id">
+        <img [src]="category.image" [alt]="category.name" class="h-[250px]" />
+        <h3 class="font-bold">{{ category.name }}</h3>
+
+      </ng-template>
+      }
+
+    </owl-carousel-o>
+
+  </div>
+</section>

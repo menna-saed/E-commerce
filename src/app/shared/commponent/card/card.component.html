@@ -1,0 +1,55 @@
+<div class="card overflow-hidden relative group/card mb-20 gap-2 hover:scale-108   mx-auto">
+  <div [routerLink]="['/details', product.slug, product.id]" class="image relative">
+    <div class="absolute top-2 left-5">
+      @if (iseven) {
+      <span [class]="{
+          'bg-red-500': iseven,
+          'px-3': iseven
+        }">SALE</span>
+      }
+      <!-- <span [class.hidden]='isodd'>{{isodd}}</span> -->
+    </div>
+    <div class="absolute top-2 right-3">
+      <span>{{ product.ratingsAverage }}</span>
+      <span> <i class="fa-solid fa-star" style="color: #ffd43b"></i></span>
+    </div>
+    <a class="block cursor-pointer">
+      <img [src]="product.imageCover" [alt]="product.title" class="w-full" />
+    </a>
+    <div class="caption text-center mt-2 relative">
+      <p class="text-gray-500">{{ product.category.name }}</p>
+      <h2 class="test-hover font-bold text-xl hover:text-blue-500 cursor-pointer">
+        {{ product.title | term : 3 }}
+      </h2>
+      <div class="pt-2">
+        <span class="text-gray-500 text-xl"> {{ product.price | currency : 'EGP' }} </span>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="icons font-bold text-center mx-auto  absolute left-10 w-[200px]  group-hover/card:bottom-[23%] transition-all duration-500">
+    <ul class="flex justify-center items-center text-black ">
+      <li class="p-3 px-4 m-2 text-2xl  hover:bg-red-500 hover:text-white transition-all duration-600">
+        <a (click)="addproductToCart(product._id)" class="cursor-pointer">
+          <i class="fa-solid fa-cart-shopping"></i>
+
+        </a>
+      </li>
+      <li class="p-3 px-4 m-2 text-2xl  hover:bg-red-500  hover:text-white transition-all duration-600">
+        <a class="cursor-pointer" (click)="addToWishlist(product._id)" [class]="{
+          'text-red-700':isred
+        }" [style]="{
+          'color': 'cd0404'
+        }">
+          @if(isred){
+          <i class="fa-solid fa-heart" style="color: #cd0404;"></i>
+          }
+          @else{
+          <i class="fa-regular fa-heart"></i>
+          }
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

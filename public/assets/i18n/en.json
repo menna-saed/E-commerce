@@ -1,0 +1,50 @@
+{
+    "common": {
+        "save": "save",
+        "update": "update",
+        "delete": "delete"
+    },
+    "navbar": {
+        "Home": "Home",
+        "Products": "Products",
+        "Brands": "Brands",
+        "Catogries": "Catogries",
+        "Signout": "Signout",
+        "login": "login",
+        "register": "Register",
+        "english-us":"English-Us",
+        "arabic":"Arabic"
+
+      
+    },
+    "product": {
+        "Product_List": "Product List",
+        "Item_market": "Item in the market"
+    },
+    "category": {
+        "categories": "Popular Category",
+        "Item_market": "Popular Item in the market"
+    },
+    "popularproduct":{
+        "title":"Best Sellers",
+        "Item_market":"Popular Item in the market"
+    },
+    "categories":{
+            "title":"Trending Product",
+        "Item_market":"Popular Item in the market"
+    },
+    "brands":{
+              "title":"Some of Brands",
+        "Item_market":"Popular Item in the market"
+    },
+    "allorders":{
+        "title":"All Orders.."
+    }, 
+    "login":{
+          "title":"Login Now",
+          "forgot":"Forgot Password",
+          "button":"login"
+    }
+
+    
+}

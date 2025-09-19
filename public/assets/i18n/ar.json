@@ -1,0 +1,53 @@
+{
+  "common": {
+    "home": "الرئيسية",
+    "save": "حفظ",
+    "update": "تحديث",
+    "delete": "حذف"
+  },
+  "navbar": {
+    "Home": "الرئيسية",
+    "Products": "المنتجات",
+    "Brands": "العلامات التجارية",
+    "Catogries": "التصنيفات",
+    "Signout": "تسجيل الخروج",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+     "english-us":"اللغه الانجليزيه",
+        "arabic":"اللغه العريية"
+
+
+  },
+  "product": {
+    "Product_List": "قائمة المنتجات",
+    "Item_market": "العناصر في الماركت"
+  },
+  "category": {
+    "categories": "قائمة التصنيفات",
+    "Item_market": "اشهر التصنيفات"
+  },
+
+  "popularproduct": {
+    "title": "الأكثر مبيعًا",
+    "Item_market": "منتجات شائعة في السوق"
+  },
+  "categories": {
+    "title": "منتجات رائجة",
+    "Item_market": "منتجات شائعة في السوق"
+  },
+  "brands": {
+    "title": "بعض العلامات التجارية",
+    "Item_market": "منتجات شائعة في السوق"
+  },
+    "allorders":{
+        "title":"كل الأوردرات"
+    },
+     "login":{
+          "title":"سجل الان",
+          "forgot":"هل نسيت كلمة السر",
+          "button":"تسجيل"
+    }
+
+
+}
+

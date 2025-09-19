@@ -1,0 +1,45 @@
+<section class="min-h-screen mt-20 ">
+  <h2 class="ps-25 text-black-900 font-bold text-4xl  pt-3">{{"allorders.title"|translate}}</h2>
+  @for (item of OrderList ; track $index) {
+  <div>
+    <a href="#"
+      class="mt-10 mx-auto flex flex-col items-center border border-gray-200 rounded-lg shadow-sm md:flex-row w-[70%] hover:bg-gray-200">
+
+      <div class="grid md:grid-cols-12 relative">
+        <i class="fa-solid fa-xmark absolute top-4 right-4 "></i>
+        <div class="img  md:col-span-2 ">
+          <img src="/images/hero-banner.png.webp" alt="" class="w-50 h-50">
+        </div>
+
+        <div class="flex flex-wrap justify-between items-center py-10 leading-normal   md:col-span-10">
+          <div>
+            <span class="mb-2 text-xl px-10  me-30 font-bold tracking-tight text-gray-900 ">Is Paid :
+              {{item?.isPaid}}</span>
+            <span class="mb-2 text-xl font-bold tracking-tight text-gray-900 ">Paid AT: {{item?.paidAt}}
+            </span>
+          </div>
+
+
+          <div class="">
+            <span class="mb-2 text-xl p-8 font-bold tracking-tight text-gray-900 "> Update At :
+              {{item?.updatedAt |date}}</span>
+            <span class="mb-2 px-10 text-xl font-bold  tracking-tight text-gray-900 ">Total Order Price
+              : {{item?.totalOrderPrice}} EGP
+            </span>
+
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+    </a>
+  </div>
+  }
+
+
+
+
+</section>

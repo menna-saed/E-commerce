@@ -1,0 +1,143 @@
+<div class="section mt-25 mb-20">
+  <h2 class="text-center text-blue-900 font-bold text-4xl pb-7 pt-3">CheckOut Details..</h2>
+
+  <form class="max-w-lg mx-auto" [formGroup]="formInput" (ngSubmit)="submitData()">
+
+
+    <div class="relative z-0 w-full mb-4 group">
+      @let formDetails = formInput.get('shippingAddress')?.get('details');
+      <div formGroupName="shippingAddress">
+        <textarea [class]="{
+            'border-green-500': formDetails?.valid,
+            'border-red-500': formDetails?.invalid && formDetails?.touched
+          }" formControlName="details" name="floating_details" id="details"
+          class="block py-2 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
+          placeholder=" "></textarea>
+
+        <label for="details"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">details
+        </label>
+
+        <!-- alert -->
+        @if(formDetails?.errors && formDetails?.touched){
+        <div class="flex p-2 mt-3 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert">
+          <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+          </svg>
+          <span class="sr-only">Danger</span>
+          <div>
+            <span class="font-medium">Ensure that these requirements are met:</span>
+            <ul class="mt-1.5 list-disc list-inside">
+              @if(formDetails?.getError('required')){
+              <li>details is Required</li>
+              }
+            </ul>
+          </div>
+        </div>
+        }
+        <!-- alert -->
+
+
+        <div class="relative z-0 w-full mb-6 group">
+          @let formPhone = formInput.get('shippingAddress')?.get('phone');
+
+          <input [class]="{
+            'border-green-500': formPhone?.valid,
+            'border-red-500': formPhone?.invalid && formPhone?.touched
+          }" formControlName="phone" name="floating_Phone" id="Phone"
+            class="block mt-4 py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
+            placeholder=" " />
+          <label for="Phone"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone
+          </label>
+          <!-- alert -->
+          @if(formPhone?.errors && formPhone?.touched){
+          <div class="flex p-4 mt-5 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+            role="alert">
+            <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+              <span class="font-medium">Ensure that these requirements are met:</span>
+              <ul class="mt-1.5 list-disc list-inside">
+                @if(formPhone?.getError('required')){
+                <li>phone is Required</li>
+                } @if(formPhone?.getError('pattern') ){
+                <li>Enter valid phone</li>
+                }
+              </ul>
+            </div>
+          </div>
+          }
+          <!-- alert -->
+        </div>
+
+        <div class="relative z-0 w-full mb-6 group">
+          @let formCity = formInput.get('shippingAddress')?.get('city');
+          <input [class]="{
+            'border-green-500': formCity?.valid,
+            'border-red-500': formCity?.invalid && formCity?.touched
+          }" formControlName="city" name="floating_city" id="city"
+            class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
+            placeholder=" " />
+          <label for="city"
+            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">city
+          </label>
+
+          <!-- alert -->
+          @if(formCity?.errors && formCity?.touched){
+          <div class="flex p-4 mt-5 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+            role="alert">
+            <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+              <span class="font-medium">Ensure that these requirements are met:</span>
+              <ul class="mt-1.5 list-disc list-inside">
+                @if(formCity?.getError('required')){
+                <li>city is Required</li>
+                }
+              </ul>
+            </div>
+          </div>
+          }
+          <!-- alert -->
+        </div>
+
+        <!-------------------------------------------------- resuable commponet ---------------------------------------------------------------->
+
+        <!-- <app-input [control]="RegisterForm.get('name')" [typenput]="'text'" [labelInput]="'name'" [idInput]="'Name'"></app-input>
+
+    <app-input [control]="RegisterForm.get('email')" [typenput]="'text'" [labelInput]="'email'" [idInput]="'Email'"></app-input>
+    <app-input [control]="RegisterForm.get('password')" [typenput]="'password'" [labelInput]="'password '"[idInput]="'Password'"></app-input>
+
+
+       <app-input [control]="RegisterForm.get('rePassword')" [typenput]="'password'" [labelInput]="'rePassword'" [idInput]="'repassword'"></app-input>
+
+
+   
+       <app-input [control]="RegisterForm.get('phone')" [typenput]="'tel'" [labelInput]="'phone'" [idInput]="'Phone'"></app-input> -->
+        <!------------------------------------------- end-resuable componnet -------------------------------------------------------------------------->
+
+        <div class="flex items-center gap-6">
+          <button type="submit" class="btn">payment by cach
+            <span><i class="fa-solid fa-money-bill-1-wave"></i></span>
+          </button>
+          <button type="submit" class="btn">payment by visa
+            <span><i class="fa-brands fa-cc-visa"></i></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>

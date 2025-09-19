@@ -1,0 +1,56 @@
+<section class="mt-20 mx-auto">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+      <thead class="text-lg font-bold text-gray-800 uppercase bg-gray-300 ">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Product name
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Rate
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Category
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Price
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of wishlistData ; track $index) {
+        <tr class="odd:bg-white even:bg-gray-200 border-gray-200 cursor-pointer">
+          <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap ">
+            {{item.title|term:3}} 
+          </th>
+          <td class="px-6 py-4">
+         
+            <div class="flex ">
+
+              <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+              <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            </div>
+          </td>
+          <td class="px-6 py-4">
+            {{item.slug|term:1}}
+          </td>
+          <td class="px-6 py-4 font-bold">
+            {{item.price|currency:'EGP'}}
+          </td>
+          <td class="px-6 py-4">
+            <a  class="cursor-pointer font-medium text-blue-600  hover:underline" (click)="removeItem(item._id)">
+              <i class="fa-solid fa-trash text-red-700 text-xl"></i>
+            </a>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+</section>

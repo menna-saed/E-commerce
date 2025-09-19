@@ -1,0 +1,21 @@
+<section>
+  <div class=" mx-auto mt-15 w-[85%] ">
+    <p class="text-gray-500">{{"popularproduct.Item_market"|translate}}</p>
+    <h2 class="text-3xl font-bold">{{"popularproduct.title"|translate}}</h2>
+
+
+    <div class="parent m-4  grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      @for (product of productList.slice(0,8); track $index; let index=$index ) {
+      <app-card [product]="product"
+      [iseven]="index %2 === 0"
+       >
+    
+      </app-card>
+
+     
+
+      }
+
+    </div>
+  </div>
+</section>
