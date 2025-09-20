@@ -21,7 +21,6 @@ export class langService {
   constructor(private translate: TranslateService, private cookies: CookieService) {
 
     let DefaultLang = 'en'
-    
     if (isPlatformBrowser(this.id)) {
       if (this.cookies.get('lang') !== null) {
         DefaultLang = this.cookies.get('lang')
